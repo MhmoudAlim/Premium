@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId = ProjectConfig.appId
         minSdk = ProjectConfig.minSdk
-        targetSdk =  ProjectConfig.targetSdk
+        targetSdk = ProjectConfig.targetSdk
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
@@ -20,6 +20,11 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+    }
+    
+
+    defaultConfig {
+        buildConfigField("String", "API_KEY", "\"3f3cefbbcb0f4b23933ccdb9e69c5397\"")
     }
 
     buildTypes {
