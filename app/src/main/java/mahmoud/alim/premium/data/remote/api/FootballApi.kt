@@ -18,7 +18,7 @@ interface FootballApi {
     suspend fun getLeagueMatches(
         @Header("X-Auth-Token") token: String,
         @Query("limit") limit: Int? = null, //Integer [1-500]
-    ): Response<LeagueDto>
+    ): LeagueDto
 
 
     @GET("v4/competitions/{id}/matches")
@@ -28,7 +28,7 @@ interface FootballApi {
         @Query("dateFrom") dateFrom: LocalDate,
         @Query("dataTo") dataTo: LocalDate,
         @Query("limit") limit: Int? = null,
-    ): Response<LeagueDto>
+    ): LeagueDto
 
 
     companion object {
