@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Premium</string>
+    <string name="error_something_went_wrong">Something Went Wrong</string>
 </resources>
