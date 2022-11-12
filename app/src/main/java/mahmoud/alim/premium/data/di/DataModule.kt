@@ -31,14 +31,14 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient() = OkHttpClient.Builder().apply {
-        addInterceptor(
-            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-        )
-        connectTimeout(6, TimeUnit.SECONDS)
-        readTimeout(6, TimeUnit.SECONDS)
-        build()
-    }
+    fun provideOkHttpClient() = OkHttpClient.Builder()
+        .addInterceptor(HttpLoggingInterceptor().apply {
+            setLevel(HttpLoggingInterceptor.Level.BODY)
+        })
+        .connectTimeout(6, TimeUnit.SECONDS)
+        .readTimeout(6, TimeUnit.SECONDS)
+        .build()
+
 
     @Provides
     @Singleton
