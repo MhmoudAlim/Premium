@@ -61,8 +61,9 @@ class FixtureViewModel @Inject constructor(
         viewModelScope.launch(dispatcher.io) {
             useCases.getAllLeagueMatches().apply {
                 onSuccess { fixturesList ->
+                    val fixturesMap = useCases.filterAndGroupMatches(fixturesList)
                     state = state.copy(
-                        fixtures = fixturesList,
+                        fixtures = fixturesMap,
                         isSearching = false
                     )
                 }
