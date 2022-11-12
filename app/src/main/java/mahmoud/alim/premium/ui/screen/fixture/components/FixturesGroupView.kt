@@ -36,7 +36,7 @@ fun FixturesGroupView(
                 shape = RoundedCornerShape(12.dp)
             )
             .background(
-                color = MaterialTheme.colors.surface,
+                color = MaterialTheme.colors.primary.copy(.2f),
                 shape = RoundedCornerShape(12.dp)
             )
             .padding(spacing.spaceMedium)
