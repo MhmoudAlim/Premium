@@ -7,6 +7,6 @@ import mahmoud.alim.premium.domain.model.Fixture
  */
 
 data class FixtureState(
-    val fixtures: List<Fixture> = emptyList(),
+    val fixtures: List<Pair<String, List<Fixture>>> = emptyList(),
     val isSearching: Boolean = true
 )
