@@ -9,7 +9,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import mahmoud.alim.premium.core.navigation.Route
+import mahmoud.alim.premium.core.navigation.navigate
 import mahmoud.alim.premium.ui.components.HomeScaffold
+import mahmoud.alim.premium.ui.screen.fixture.FixturesScreen
 import mahmoud.alim.premium.ui.theme.PremiumTheme
 
 @AndroidEntryPoint
@@ -26,7 +28,10 @@ class MainActivity : ComponentActivity() {
                         startDestination = Route.Fixture
                     ) {
                         composable(Route.Fixture) {
-
+                            FixturesScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.Favourites) {
 
