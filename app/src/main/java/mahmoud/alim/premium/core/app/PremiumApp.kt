@@ -1,6 +1,7 @@
 package mahmoud.alim.premium.core.app
 
 import android.app.Application
+import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.hilt.android.HiltAndroidApp
 
 /**
@@ -9,4 +10,9 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class PremiumApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        AndroidThreeTen.init(this)
+    }
 }
