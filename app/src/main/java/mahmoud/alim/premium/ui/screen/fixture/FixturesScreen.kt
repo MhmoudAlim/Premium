@@ -12,7 +12,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import mahmoud.alim.premium.ui.components.HomeScaffold
+import mahmoud.alim.premium.ui.screen.fixture.components.HomeScaffold
 import mahmoud.alim.premium.ui.screen.fixture.components.FixturesGroupView
 import mahmoud.alim.premium.ui.util.LocalSpacing
 import mahmoud.alim.premium.ui.util.UiEvent

@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import mahmoud.alim.premium.domain.model.Fixture
-import mahmoud.alim.premium.ui.components.FixtureView
 import mahmoud.alim.premium.ui.util.LocalSpacing
 
 /**

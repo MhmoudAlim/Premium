@@ -1,7 +1,6 @@
-package mahmoud.alim.premium.ui.components
+package mahmoud.alim.premium.ui.screen.fixture.components
 
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,26 +8,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
 import mahmoud.alim.premium.R
 import mahmoud.alim.premium.domain.model.Fixture
-import mahmoud.alim.premium.domain.model.MatchStatus
+import mahmoud.alim.premium.ui.components.MatchMetaDetailsView
+import mahmoud.alim.premium.ui.components.TeamFlagView
+import mahmoud.alim.premium.ui.components.TeamNameView
 import mahmoud.alim.premium.ui.util.LocalSpacing
 
 /**
@@ -96,58 +88,6 @@ fun FixtureView(
     }
 }
 
-@OptIn(ExperimentalCoilApi::class)
-@Composable
-private fun TeamFlagView(flag: String, name: String) {
-    Image(
-        painter = rememberImagePainter(
-            data = flag,
-            builder = {
-                crossfade(true)
-                error(R.drawable.ic_premier_league)
-                fallback(R.drawable.ic_premier_league)
-            }
-        ),
-        contentDescription = name,
-        contentScale = ContentScale.Crop,
-        modifier = Modifier.size(24.dp)
-    )
-}
 
 
-@Composable
-private fun TeamNameView(name: String) {
-    Text(
-        text = name,
-        style = TextStyle(
-            fontWeight = FontWeight.Medium,
-            fontSize = 14.sp,
-        ),
-        overflow = TextOverflow.Ellipsis
-    )
-}
 
-@Composable
-private fun MatchMetaDetailsView(fixture: Fixture) {
-    val spacing = LocalSpacing.current
-
-    val matchMeta = when (fixture.status) {
-        MatchStatus.Ended -> "${fixture.homeTeamScore ?: 0}-${fixture.awayTeamScore ?: 0}"
-        MatchStatus.Scheduled -> fixture.matchTimeFormatted
-    }
-    val fontColor = when (fixture.status) {
-        MatchStatus.Ended -> MaterialTheme.colors.primary
-        MatchStatus.Scheduled -> MaterialTheme.colors.onPrimary
-    }
-
-    Text(
-        text = matchMeta,
-        style = TextStyle(
-            fontWeight = FontWeight.Medium,
-            fontSize = 13.sp,
-            color = fontColor
-        ),
-        modifier = Modifier.padding(horizontal = spacing.spaceSmall)
-    )
-
-}
