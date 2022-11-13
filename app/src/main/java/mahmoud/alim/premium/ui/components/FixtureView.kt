@@ -14,10 +14,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -81,20 +77,17 @@ fun FixtureView(
             }
         }
 
-        var favIconTint by remember { mutableStateOf(Color.DarkGray) }
-
         Row(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.weight(.1f)
         ) {
             IconButton(onClick = {
-                favIconTint = Color.Yellow
                 onFavFixtureClick()
             }) {
                 Icon(
                     imageVector = Icons.Outlined.Star,
-                    tint = favIconTint,
+                    tint = Color.Yellow,
                     contentDescription = stringResource(id = R.string.favourite_fixture),
                     modifier = Modifier.size(20.dp)
                 )
