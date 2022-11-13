@@ -1,4 +1,4 @@
-package mahmoud.alim.premium.ui.components
+package mahmoud.alim.premium.ui.screen.fixture.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
