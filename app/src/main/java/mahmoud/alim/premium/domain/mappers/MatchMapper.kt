@@ -20,7 +20,7 @@ fun Match.toFixture(): Fixture {
         status = MatchStatus.fromString(status),
         homeTeamScore = score?.fullTime?.home,
         awayTeamScore = score?.fullTime?.away,
-        matchDate = utcDate
+        matchDateTime = utcDate
     )
 }
 
@@ -35,7 +35,7 @@ fun Fixture.toMatchEntity(): MatchEntity {
         status = status.name,
         homeTeamScore = homeTeamScore ?: 0,
         awayTeamScore = awayTeamScore ?: 0,
-        matchDate = matchDate
+        matchDate = matchDateTime
     )
 }
 
@@ -50,6 +50,6 @@ fun MatchEntity.toFixture(): Fixture {
         status = MatchStatus.fromString(status),
         homeTeamScore = homeTeamScore ?: 0,
         awayTeamScore = awayTeamScore ?: 0,
-        matchDate = matchDate
+        matchDateTime = matchDate
     )
 }
