@@ -42,6 +42,11 @@ class FixtureViewModel @Inject constructor(
             is FixtureEvent.OnAddFixtureToFavClicked -> {
                 viewModelScope.launch {
                     useCases.addFixtureToFavourites(event.fixture)
+                    _uiEvent.send(
+                        UiEvent.ShowSnackBar(
+                            UiText.StringResources(R.string.fixture_saved)
+                        )
+                    )
                 }
             }
             FixtureEvent.OnLoadAllFixtures -> {
@@ -61,7 +66,8 @@ class FixtureViewModel @Inject constructor(
         viewModelScope.launch(dispatcher.io) {
             useCases.getAllLeagueMatches().apply {
                 onSuccess { fixturesList ->
-                    val fixturesMap = useCases.filterAndGroupMatches(fixturesList)
+                    val fixturesMap =
+                        useCases.filterAndGroupMatches(fixturesList, true)
                     state = state.copy(
                         fixtures = fixturesMap,
                         isSearching = false
