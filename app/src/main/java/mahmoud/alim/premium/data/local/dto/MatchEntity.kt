@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
  * @author Mahmoud Alim on 11/11/2022.
  */
 
-@Entity
+@Entity(tableName = MatchEntity.TABLE_NAME)
 data class MatchEntity(
     @PrimaryKey
     val id: Int? = null,
@@ -19,4 +19,8 @@ data class MatchEntity(
     val homeTeamScore: Int,
     val awayTeamScore: Int,
     val matchDate: String
-)
+){
+    companion object{
+       const val TABLE_NAME = "MatchEntity"
+    }
+}
