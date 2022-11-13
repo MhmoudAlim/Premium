@@ -48,8 +48,8 @@ fun MatchEntity.toFixture(): Fixture {
         homeTeamFlag = homeTeamFlag,
         awayTeamFlag = awayTeamFlag,
         status = MatchStatus.fromString(status),
-        homeTeamScore = homeTeamScore ?: 0,
-        awayTeamScore = awayTeamScore ?: 0,
+        homeTeamScore = homeTeamScore ,
+        awayTeamScore = awayTeamScore,
         matchDateTime = matchDate
     )
 }
