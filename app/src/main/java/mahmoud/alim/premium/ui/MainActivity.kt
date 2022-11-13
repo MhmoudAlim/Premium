@@ -21,21 +21,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             PremiumTheme {
                 val navController = rememberNavController()
-                val scaffoldState = rememberScaffoldState()
-                HomeScaffold {
-                    NavHost(
-                        navController = navController,
-                        startDestination = Route.Fixture
-                    ) {
-                        composable(Route.Fixture) {
-                            FixturesScreen(
-                                scaffoldState = scaffoldState,
-                                onNavigate = navController::navigate
-                            )
-                        }
-                        composable(Route.Favourites) {
+                NavHost(
+                    navController = navController,
+                    startDestination = Route.Fixture
+                ) {
+                    composable(Route.Fixture) {
+                        FixturesScreen(onNavigate = navController::navigate)
+                    }
 
-                        }
+                    composable(Route.Favourites) {
 
                     }
 
