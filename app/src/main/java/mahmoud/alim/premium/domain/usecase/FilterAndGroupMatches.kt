@@ -1,5 +1,6 @@
 package mahmoud.alim.premium.domain.usecase
 
+import mahmoud.alim.premium.core.AppDateTime
 import mahmoud.alim.premium.domain.model.Fixture
 
 
@@ -8,11 +9,20 @@ import mahmoud.alim.premium.domain.model.Fixture
  */
 class FilterAndGroupMatches {
 
-    operator fun invoke(fixtures: List<Fixture>): List<Pair<String, List<Fixture>>> {
+    operator fun invoke(
+        fixtures: List<Fixture>,
+        showUpcomingOnly: Boolean
+    ): List<Pair<String, List<Fixture>>> {
         return fixtures.groupBy {
-            it.matchDate
+            it.matchDateFormatted
         }.entries.map { (date, fixtures) ->
             Pair(date, fixtures)
+        }.apply {
+            if (showUpcomingOnly)
+                filter { (date, _) ->
+                    AppDateTime.durationInDaysOf(date)
+                }
         }
+
     }
 }
