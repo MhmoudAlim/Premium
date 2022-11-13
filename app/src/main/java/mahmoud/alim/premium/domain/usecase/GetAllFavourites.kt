@@ -9,7 +9,7 @@ import mahmoud.alim.premium.domain.model.Fixture
  */
 class GetAllFavourites(private val repo: FootballFixtureRepo) {
 
-    suspend operator fun invoke(): Flow<List<Fixture>> {
+     operator fun invoke(): Flow<List<Fixture>> {
         return repo.getAllSavedFixtures()
     }
 }
