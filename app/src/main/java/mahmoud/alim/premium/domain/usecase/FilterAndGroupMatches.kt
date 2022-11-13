@@ -1,5 +1,6 @@
 package mahmoud.alim.premium.domain.usecase
 
+import androidx.compose.ui.graphics.Color
 import mahmoud.alim.premium.core.AppDateTime
 import mahmoud.alim.premium.domain.model.Fixture
 
@@ -13,16 +14,17 @@ class FilterAndGroupMatches {
         fixtures: List<Fixture>,
         showUpcomingOnly: Boolean
     ): List<Pair<String, List<Fixture>>> {
-        return fixtures.groupBy {
+        val groupedFixtures = fixtures.groupBy {
             it.matchDateFormatted
         }.entries.map { (date, fixtures) ->
             Pair(date, fixtures)
-        }.apply {
-            if (showUpcomingOnly)
-                filter { (date, _) ->
-                    AppDateTime.durationInDaysOf(date)
-                }
         }
-
+        return if (showUpcomingOnly) {
+            groupedFixtures.filter { (date, _) ->
+                AppDateTime.durationInDaysOf(date)
+            }
+        } else {
+            groupedFixtures
+        }
     }
 }

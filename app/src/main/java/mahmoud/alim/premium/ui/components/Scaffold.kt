@@ -1,27 +1,28 @@
 package mahmoud.alim.premium.ui.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.height
+import androidx.compose.material.DropdownMenu
+import androidx.compose.material.DropdownMenuItem
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import mahmoud.alim.premium.R
+import mahmoud.alim.premium.ui.util.LocalSpacing
 
 /**
  * @author Mahmoud Alim on 12/11/2022.
@@ -29,38 +30,35 @@ import mahmoud.alim.premium.R
 
 @Composable
 fun HomeScaffold(
-    modifier: Modifier = Modifier,
-    content: @Composable RowScope.() -> Unit
+    onNavigate: () -> Unit,
+    content: @Composable() () -> Unit
 ) {
-    Column(
-        modifier.fillMaxSize()
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(bottomEnd = 24.dp, bottomStart = 24.dp))
-                .background(MaterialTheme.colors.primary)
-                .padding(top = 16.dp)
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.Bottom
-        ) {
-            Text(
-                text = stringResource(R.string.premium_league),
-                style = TextStyle.Default.copy(
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colors.onPrimary
-                ),
-                maxLines = 1,
-            )
-        }
-        Row(
-            modifier = modifier
-                .fillMaxSize(),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            content()
-        }
+    var displayMenu by remember { mutableStateOf(false) }
+    val spacing = LocalSpacing.current
+    Column(Modifier.fillMaxSize()) {
+        TopAppBar(
+            title = { Text(stringResource(R.string.premium_league), color = Color.White) },
+            backgroundColor = MaterialTheme.colors.primary,
+            actions = {
+                // Creating Icon button for dropdown menu
+                IconButton(onClick = { displayMenu = !displayMenu }) {
+                    Icon(Icons.Default.MoreVert, "")
+                }
+                DropdownMenu(
+                    expanded = displayMenu,
+                    onDismissRequest = { displayMenu = false }
+                ) {
+                    DropdownMenuItem(onClick = {
+                        displayMenu = false
+                        onNavigate()
+                    }) {
+                        Text(text = stringResource(R.string.show_fav))
+                    }
+                }
+            }
+        )
+        Spacer(modifier = Modifier.height(spacing.spaceSmall))
+        content()
     }
+
 }
