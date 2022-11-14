@@ -22,6 +22,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.sp
 import mahmoud.alim.premium.R
 import mahmoud.alim.premium.ui.util.LocalSpacing
 
@@ -32,10 +34,12 @@ import mahmoud.alim.premium.ui.util.LocalSpacing
 @Composable
 fun HomeScaffold(
     onNavigate: () -> Unit,
+    onShowAllFixtures: (Boolean) -> Unit,
     content: @Composable() () -> Unit
 ) {
     var displayMenu by remember { mutableStateOf(false) }
     val spacing = LocalSpacing.current
+
     Column(Modifier.fillMaxSize()) {
         TopAppBar(
             title = { Text(stringResource(R.string.premium_league), color = Color.White) },
@@ -53,7 +57,34 @@ fun HomeScaffold(
                         displayMenu = false
                         onNavigate()
                     }) {
-                        Text(text = stringResource(R.string.show_fav))
+                        Text(
+                            text = stringResource(R.string.show_fav),
+                            style = TextStyle(
+                                fontSize = 14.sp,
+                            )
+                        )
+                    }
+                    DropdownMenuItem(onClick = {
+                        displayMenu = false
+                        onShowAllFixtures(false)
+                    }) {
+                        Text(
+                            text = stringResource(R.string.show_upcoming),
+                            style = TextStyle(
+                                fontSize = 14.sp,
+                            )
+                        )
+                    }
+                    DropdownMenuItem(onClick = {
+                        displayMenu = false
+                        onShowAllFixtures(true)
+                    }) {
+                        Text(
+                            text = stringResource(R.string.show_all),
+                            style = TextStyle(
+                                fontSize = 14.sp,
+                            )
+                        )
                     }
                 }
             }
