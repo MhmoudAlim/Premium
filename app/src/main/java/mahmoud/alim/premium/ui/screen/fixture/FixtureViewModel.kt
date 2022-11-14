@@ -30,7 +30,7 @@ class FixtureViewModel @Inject constructor(
 ) : ViewModel() {
 
     init {
-        loadAllFixtures()
+        loadFixtures()
     }
 
     var state by mutableStateOf(FixtureState())
@@ -51,8 +51,8 @@ class FixtureViewModel @Inject constructor(
                     )
                 }
             }
-            FixtureEvent.OnLoadAllFixtures -> {
-                loadAllFixtures()
+            FixtureEvent.OnLoadUpcomingFixtures -> {
+                loadFixtures()
             }
             FixtureEvent.OnNavigateToFavourites -> {
                 viewModelScope.launch {
@@ -61,17 +61,24 @@ class FixtureViewModel @Inject constructor(
                     )
                 }
             }
+            is FixtureEvent.ShowAllFixtures -> {
+                state = state.copy(
+                    viewType = FixtureState.ViewType.from(event.showAll),
+                    isSearching = false
+                )
+            }
         }
     }
 
-    private fun loadAllFixtures() {
+    private fun loadFixtures() {
         viewModelScope.launch(dispatcher.io) {
             useCases.getAllLeagueMatches().apply {
                 onSuccess { fixturesList ->
-                    val fixturesMap =
-                        useCases.filterAndGroupMatches(fixturesList, true)
+                    val groupedFixtures = useCases.groupMatches(fixturesList)
+                    val filteredFixtures = useCases.filterUpcomingMatches(groupedFixtures)
                     state = state.copy(
-                        fixtures = fixturesMap,
+                        allFixtures = groupedFixtures,
+                        upcomingFixtures = filteredFixtures,
                         isSearching = false
                     )
                 }
