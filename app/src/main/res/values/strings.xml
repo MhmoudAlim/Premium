@@ -8,4 +8,5 @@
     <string name="favourites">Favourite Fixtures</string>
     <string name="show_all">Show All Fixtures</string>
     <string name="show_upcoming">Show Upcoming only</string>
+    <string name="network_lost">Network Lost</string>
 </resources>
