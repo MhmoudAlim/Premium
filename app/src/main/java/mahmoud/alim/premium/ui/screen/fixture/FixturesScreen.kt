@@ -49,9 +49,14 @@ fun FixturesScreen(
             }
         }
     }
-    HomeScaffold(onNavigate = {
-        viewModel.onEvent(FixtureEvent.OnNavigateToFavourites)
-    }) {
+
+    HomeScaffold(
+        onNavigate = {
+            viewModel.onEvent(FixtureEvent.OnNavigateToFavourites)
+        },
+        onShowAllFixtures = {
+            viewModel.onEvent(FixtureEvent.ShowAllFixtures(it))
+        }) {
         AnimatedVisibility(visible = state.isSearching) {
             CircularProgressIndicator()
         }
@@ -65,7 +70,7 @@ fun FixturesScreen(
                     .fillMaxSize()
                     .padding(horizontal = spacing.spaceMedium),
             ) {
-                items(state.fixtures) { (date, fixtures) ->
+                items(state.viewList) { (date, fixtures) ->
                     FixturesGroupView(
                         date = date,
                         fixtures = fixtures
