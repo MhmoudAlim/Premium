@@ -5,7 +5,8 @@ package mahmoud.alim.premium.domain.usecase
  */
 data class FixturesUseCases(
     val addFixtureToFavourites: AddFixtureToFavourites,
-    val filterAndGroupMatches: FilterAndGroupMatches,
+    val groupMatches: GroupMatches,
     val getAllFavourites: GetAllFavourites,
-    val getAllLeagueMatches: GetAllLeagueMatches
+    val getAllLeagueMatches: GetAllLeagueMatches,
+    val filterUpcomingMatches: FilterUpcomingMatches
 )
