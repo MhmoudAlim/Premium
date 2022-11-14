@@ -6,4 +6,6 @@
     <string name="fixture_saved">Fixture Saved to Favourties</string>
     <string name="show_fav">Show Favourites</string>
     <string name="favourites">Favourite Fixtures</string>
+    <string name="show_all">Show All Fixtures</string>
+    <string name="show_upcoming">Show Upcoming only</string>
 </resources>
