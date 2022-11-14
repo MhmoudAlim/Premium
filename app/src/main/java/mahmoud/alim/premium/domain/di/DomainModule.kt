@@ -7,7 +7,8 @@ import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 import mahmoud.alim.premium.data.repo.FootballFixtureRepo
 import mahmoud.alim.premium.domain.usecase.AddFixtureToFavourites
-import mahmoud.alim.premium.domain.usecase.FilterAndGroupMatches
+import mahmoud.alim.premium.domain.usecase.FilterUpcomingMatches
+import mahmoud.alim.premium.domain.usecase.GroupMatches
 import mahmoud.alim.premium.domain.usecase.FixturesUseCases
 import mahmoud.alim.premium.domain.usecase.GetAllFavourites
 import mahmoud.alim.premium.domain.usecase.GetAllLeagueMatches
@@ -27,9 +28,10 @@ class DomainModule {
     ): FixturesUseCases {
         return FixturesUseCases(
             addFixtureToFavourites = AddFixtureToFavourites(repo),
-            filterAndGroupMatches = FilterAndGroupMatches(),
+            groupMatches = GroupMatches(),
             getAllFavourites = GetAllFavourites(repo),
-            getAllLeagueMatches = GetAllLeagueMatches(repo)
+            getAllLeagueMatches = GetAllLeagueMatches(repo),
+            filterUpcomingMatches = FilterUpcomingMatches()
         )
     }
 }
