@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import mahmoud.alim.premium.core.navigation.NavigationAnimation
 import mahmoud.alim.premium.core.navigation.Route
 import mahmoud.alim.premium.core.navigation.navigate
 import mahmoud.alim.premium.ui.screen.favourites.FavouritesScreen
@@ -28,7 +29,9 @@ class MainActivity : ComponentActivity() {
                         FixturesScreen(onNavigate = navController::navigate)
                     }
                     composable(Route.Favourites) {
-                        FavouritesScreen()
+                        NavigationAnimation {
+                            FavouritesScreen()
+                        }
                     }
 
                 }
