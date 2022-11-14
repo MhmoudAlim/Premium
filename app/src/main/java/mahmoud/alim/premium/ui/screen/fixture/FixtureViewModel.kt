@@ -6,9 +6,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import mahmoud.alim.premium.R
 import mahmoud.alim.premium.core.dispactchers.DispatcherProvider
 import mahmoud.alim.premium.core.navigation.Route
@@ -74,9 +76,11 @@ class FixtureViewModel @Inject constructor(
                     )
                 }
                 onFailure {
-                    state = state.copy(
-                        isSearching = false
-                    )
+                    withContext(Dispatchers.Main) {
+                        state = state.copy(
+                            isSearching = false
+                        )
+                    }
                     _uiEvent.send(
                         UiEvent.ShowSnackBar(
                             UiText.StringResources(R.string.error_something_went_wrong)
