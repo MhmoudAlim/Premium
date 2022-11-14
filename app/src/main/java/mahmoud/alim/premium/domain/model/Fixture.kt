@@ -1,6 +1,6 @@
 package mahmoud.alim.premium.domain.model
 
-import mahmoud.alim.premium.core.AppDateTime
+import mahmoud.alim.premium.core.date.AppDateTime
 
 
 /**

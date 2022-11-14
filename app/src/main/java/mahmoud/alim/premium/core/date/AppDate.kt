@@ -1,4 +1,4 @@
-package mahmoud.alim.premium.core
+package mahmoud.alim.premium.core.date
 
 import org.threeten.bp.Duration
 import org.threeten.bp.LocalDate
