@@ -5,4 +5,5 @@
     <string name="favourite_fixture">Favourite this Fixture</string>
     <string name="fixture_saved">Fixture Saved to Favourties</string>
     <string name="show_fav">Show Favourites</string>
+    <string name="favourites">Favourite Fixtures</string>
 </resources>
