@@ -7,6 +7,31 @@ import mahmoud.alim.premium.domain.model.Fixture
  */
 
 data class FixtureState(
-    val fixtures: List<Pair<String, List<Fixture>>> = emptyList(),
+    val allFixtures: List<Pair<String, List<Fixture>>> = emptyList(),
+    val upcomingFixtures: List<Pair<String, List<Fixture>>> = emptyList(),
+    val viewType: ViewType = ViewType.Filtered,
     val isSearching: Boolean = true,
-)
+) {
+
+    val viewList
+        get() = when (viewType) {
+            ViewType.Filtered -> upcomingFixtures
+            ViewType.All -> allFixtures
+        }
+
+
+    enum class ViewType {
+        Filtered,
+        All;
+
+        companion object {
+            fun from(showAll: Boolean = false): ViewType {
+                return when (showAll) {
+                    true -> All
+                    false -> Filtered
+                }
+            }
+        }
+    }
+
+}
