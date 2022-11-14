@@ -24,8 +24,8 @@ fun MatchMetaDetailsView(fixture: Fixture) {
         MatchStatus.Scheduled -> fixture.matchTimeFormatted
     }
     val fontColor = when (fixture.status) {
-        MatchStatus.Ended -> MaterialTheme.colors.primary
-        MatchStatus.Scheduled -> MaterialTheme.colors.onPrimary
+        MatchStatus.Ended -> MaterialTheme.colors.secondaryVariant
+        MatchStatus.Scheduled -> MaterialTheme.colors.primaryVariant
     }
 
     Text(
