@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import mahmoud.alim.premium.domain.usecase.FixturesUseCases
 import mahmoud.alim.premium.ui.screen.favourites.state.FavouritesState
 import javax.inject.Inject
@@ -34,13 +34,11 @@ class FavouritesViewModel @Inject constructor(
     }
 
     private fun loadAllFavourites() {
-        viewModelScope.launch {
-            val favFlow = useCases.getAllFavourites()
-            favFlow.onEach {
-                state = state.copy(
-                    favourites = it,
-                )
-            }
-        }
+        useCases.getAllFavourites().onEach {
+            state = state.copy(
+                favourites = it,
+            )
+        }.launchIn(viewModelScope)
     }
+
 }

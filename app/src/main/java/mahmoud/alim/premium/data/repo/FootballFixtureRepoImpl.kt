@@ -1,7 +1,7 @@
 package mahmoud.alim.premium.data.repo
 
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.map
 import mahmoud.alim.premium.data.local.datasource.LocalDataSrc
 import mahmoud.alim.premium.data.remote.datasource.RemoteDataSrc
 import mahmoud.alim.premium.domain.mappers.toFixture
@@ -31,7 +31,7 @@ class FootballFixtureRepoImpl(
     }
 
     override fun getAllSavedFixtures(): Flow<List<Fixture>> {
-        return local.getAllMatches().mapNotNull { entities ->
+        return local.getAllMatches().map { entities ->
             entities.map {
                 it.toFixture()
             }
