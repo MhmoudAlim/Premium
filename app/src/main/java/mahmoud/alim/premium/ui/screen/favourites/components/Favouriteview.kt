@@ -3,14 +3,17 @@ package mahmoud.alim.premium.ui.screen.favourites.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import mahmoud.alim.premium.domain.model.Fixture
 import mahmoud.alim.premium.ui.components.MatchMetaDetailsView
 import mahmoud.alim.premium.ui.components.TeamFlagView
@@ -31,35 +34,46 @@ fun FavouriteView(
             .fillMaxWidth()
             .clip(shape = RoundedCornerShape(spacing.spaceMedium))
             .background(
+                color = Color.LightGray.copy(.8f),
+                shape = RoundedCornerShape(spacing.spaceMedium)
+            )
+            .background(
                 color = MaterialTheme.colors.primary.copy(.2f),
                 shape = RoundedCornerShape(spacing.spaceMedium)
             )
-            .padding(spacing.spaceSmall),
+            .padding(spacing.spaceExtraSmall)
+            .padding(vertical = spacing.spaceSmall),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Row(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = spacing.spaceSmall)
+            modifier = Modifier.weight(.9f)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(spacing.spaceExtraSmall)
+                horizontalArrangement = Arrangement.End,
+                modifier = Modifier.weight(.4f)
             ) {
-                TeamFlagView(fixture.homeTeamFlag, fixture.homeTeamName)
                 TeamNameView(fixture.homeTeamName)
+                Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
+                TeamFlagView(fixture.homeTeamFlag, fixture.homeTeamName)
             }
-
-            MatchMetaDetailsView(fixture)
-
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(spacing.spaceExtraSmall)
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier.weight(.2f)
             ) {
-                TeamNameView(fixture.awayTeamName)
+                MatchMetaDetailsView(fixture)
+            }
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Start,
+                modifier = Modifier.weight(.4f)
+            ) {
                 TeamFlagView(fixture.awayTeamFlag, fixture.awayTeamName)
+                Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
+                TeamNameView(fixture.awayTeamName)
             }
         }
     }
