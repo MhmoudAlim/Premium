@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import mahmoud.alim.premium.domain.model.Fixture
 import mahmoud.alim.premium.domain.model.MatchStatus
@@ -35,7 +36,10 @@ fun MatchMetaDetailsView(fixture: Fixture) {
             fontSize = 13.sp,
             color = fontColor
         ),
-        modifier = Modifier.padding(horizontal = spacing.spaceSmall)
+        modifier = Modifier.padding(horizontal = spacing.spaceExtraSmall),
+        overflow = TextOverflow.Ellipsis,
+        maxLines = 1
+
     )
 
 }

@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
         ),
-        overflow = TextOverflow.Ellipsis
+        overflow = TextOverflow.Ellipsis,
+        maxLines = 1
     )
 }
