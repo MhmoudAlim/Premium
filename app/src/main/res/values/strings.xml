@@ -9,4 +9,7 @@
     <string name="show_all">Show All Fixtures</string>
     <string name="show_upcoming">Show Upcoming only</string>
     <string name="network_lost">Network Lost</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="all">All Fixtures</string>
+
 </resources>
