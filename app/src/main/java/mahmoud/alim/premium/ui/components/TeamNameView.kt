@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.sp
         text = name,
         style = TextStyle(
             fontWeight = FontWeight.Medium,
-            fontSize = 14.sp,
+            fontSize = 16.sp,
         ),
         overflow = TextOverflow.Ellipsis,
         maxLines = 1

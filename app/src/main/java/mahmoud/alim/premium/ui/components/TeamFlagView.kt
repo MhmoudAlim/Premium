@@ -27,6 +27,6 @@ import mahmoud.alim.premium.R
         ),
         contentDescription = name,
         contentScale = ContentScale.Crop,
-        modifier = Modifier.size(24.dp)
+        modifier = Modifier.size(36.dp)
     )
 }

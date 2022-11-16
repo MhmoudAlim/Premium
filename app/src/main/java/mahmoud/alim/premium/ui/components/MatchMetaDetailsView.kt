@@ -1,9 +1,14 @@
 package mahmoud.alim.premium.ui.components
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -25,21 +30,38 @@ fun MatchMetaDetailsView(fixture: Fixture) {
         MatchStatus.Scheduled -> fixture.matchTimeFormatted
     }
     val fontColor = when (fixture.status) {
-        MatchStatus.Ended -> MaterialTheme.colors.secondaryVariant
-        MatchStatus.Scheduled -> MaterialTheme.colors.primaryVariant
+        MatchStatus.Ended -> MaterialTheme.colors.primary
+        MatchStatus.Scheduled -> MaterialTheme.colors.onPrimary
     }
 
-    Text(
-        text = matchMeta,
-        style = TextStyle(
-            fontWeight = FontWeight.Medium,
-            fontSize = 13.sp,
-            color = fontColor
-        ),
-        modifier = Modifier.padding(horizontal = spacing.spaceExtraSmall),
-        overflow = TextOverflow.Ellipsis,
-        maxLines = 1
+    val backGroundColor = when (fixture.status) {
+        MatchStatus.Ended -> MaterialTheme.colors.onPrimary
+        MatchStatus.Scheduled -> MaterialTheme.colors.primary
+    }
 
-    )
+    Column(
+        modifier = Modifier
+            .background(
+                color = backGroundColor,
+                shape = RoundedCornerShape(spacing.spaceExtraLarge)
+            )
+            .padding(spacing.spaceSmall)
+            .padding(horizontal = spacing.spaceExtraSmall),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = matchMeta,
+            style = TextStyle(
+                fontWeight = FontWeight.Bold,
+                fontSize = 13.sp,
+                color = fontColor
+            ),
+            overflow = TextOverflow.Visible,
+            maxLines = 1
+
+        )
+    }
+
 
 }
