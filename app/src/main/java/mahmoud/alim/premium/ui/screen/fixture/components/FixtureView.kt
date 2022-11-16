@@ -21,7 +21,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import mahmoud.alim.premium.R
 import mahmoud.alim.premium.domain.model.Fixture
@@ -95,7 +98,9 @@ fun FixtureView(
                 favIconTint = Color.Yellow
                 favIcon = Icons.Outlined.Star
                 onFavFixtureClick()
-            }) {
+            }, modifier.semantics {
+                contentDescription = "Favourite"
+            }){
                 Icon(
                     imageVector = favIcon,
                     tint = favIconTint,
