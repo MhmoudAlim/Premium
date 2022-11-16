@@ -91,7 +91,8 @@ dependencies {
     testImplementation(Testing.composeUiTest)
     testImplementation(Testing.testRunner)
     testImplementation(Testing.testRunnerSupport)
-
+    testImplementation(Testing.mockWebServer)
+    testImplementation(Testing.mockk)
 
     androidTestImplementation(Testing.junit4)
     androidTestImplementation(Testing.junitAndroidExt)
@@ -103,5 +104,7 @@ dependencies {
     androidTestImplementation(Testing.testRunner)
     androidTestImplementation(Testing.testRunnerSupport)
     androidTestImplementation(Testing.androidArch)
+    androidTestImplementation(Testing.mockkAndroid)
+    androidTestImplementation(Testing.mockWebServer)
 
 }

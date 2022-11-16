@@ -26,4 +26,11 @@ object Testing {
 
     private const val androidArchVersion = "1.0.0"
     const val androidArch = "android.arch.core:core-testing:$androidArchVersion"
+
+    private const val mockWebServerVersion = "4.9.3"
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+
+    private const val mockkVersion = "1.10.0"
+    const val mockk = "io.mockk:mockk:$mockkVersion"
+    const val mockkAndroid = "io.mockk:mockk-android:$mockkVersion"
 }
