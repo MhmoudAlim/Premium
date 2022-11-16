@@ -16,7 +16,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "mahmoud.alim.premium.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
