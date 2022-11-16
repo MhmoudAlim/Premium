@@ -51,6 +51,7 @@ fun FixturesScreen(
     }
 
     HomeScaffold(
+        viewState = state.viewType,
         onNavigate = {
             viewModel.onEvent(FixtureEvent.OnNavigateToFavourites)
         },
@@ -68,7 +69,7 @@ fun FixturesScreen(
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(horizontal = spacing.spaceMedium),
+                    .padding(horizontal = spacing.spaceSmall),
             ) {
                 items(state.viewList) { (date, fixtures) ->
                     FixturesGroupView(
