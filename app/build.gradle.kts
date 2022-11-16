@@ -89,6 +89,9 @@ dependencies {
     testImplementation(Testing.truth)
     testImplementation(Testing.coroutines)
     testImplementation(Testing.composeUiTest)
+    testImplementation(Testing.testRunner)
+    testImplementation(Testing.testRunnerSupport)
+
 
     androidTestImplementation(Testing.junit4)
     androidTestImplementation(Testing.junitAndroidExt)
@@ -98,5 +101,7 @@ dependencies {
     androidTestImplementation(Testing.hiltTesting)
     kaptAndroidTest(DaggerHilt.hiltCompiler)
     androidTestImplementation(Testing.testRunner)
+    androidTestImplementation(Testing.testRunnerSupport)
+    androidTestImplementation(Testing.androidArch)
 
 }

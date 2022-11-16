@@ -20,4 +20,10 @@ object Testing {
 
     private const val testRunnerVersion = "1.4.0"
     const val testRunner = "androidx.test:runner:$testRunnerVersion"
+
+    private const val testRunnerSupportVersion = "0.5"
+    const val testRunnerSupport = "com.android.support.test:runner:$testRunnerSupportVersion"
+
+    private const val androidArchVersion = "1.0.0"
+    const val androidArch = "android.arch.core:core-testing:$androidArchVersion"
 }
