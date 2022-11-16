@@ -7,5 +7,5 @@ data class LeagueDto(
     @field:Json(name ="matches")
     val matches: List<Match>,
     @field:Json(name ="resultSet")
-    val resultSet: ResultSet
+    val resultSet: ResultSet?
 )
