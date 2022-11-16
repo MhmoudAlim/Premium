@@ -10,7 +10,7 @@ import mahmoud.alim.premium.data.remote.dto.Score.FullTime
 /**
  * @author Mahmoud Alim on 16/11/2022.
  */
-class RemoteDataSrcImplTest : RemoteDataSrc {
+class FakeRemoteDataSrcImpl : RemoteDataSrc {
 
     private val awayTeamInstance
         get() = AwayTeam(

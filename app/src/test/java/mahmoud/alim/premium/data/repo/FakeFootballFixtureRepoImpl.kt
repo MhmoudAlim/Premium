@@ -2,8 +2,8 @@ package mahmoud.alim.premium.data.repo
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import mahmoud.alim.premium.data.local.datasource.LocalDataSrcImplTest
-import mahmoud.alim.premium.data.remote.datasource.RemoteDataSrcImplTest
+import mahmoud.alim.premium.data.local.datasource.FakeLocalDataSrcImpl
+import mahmoud.alim.premium.data.remote.datasource.FakeRemoteDataSrcImpl
 import mahmoud.alim.premium.domain.mappers.toFixture
 import mahmoud.alim.premium.domain.mappers.toMatchEntity
 import mahmoud.alim.premium.domain.model.Fixture
@@ -12,10 +12,10 @@ import mahmoud.alim.premium.domain.model.Fixture
 /**
  * @author Mahmoud Alim on 16/11/2022.
  */
-class FootballFixtureRepoImplTest : FootballFixtureRepo {
+class FakeFootballFixtureRepoImpl : FootballFixtureRepo {
 
-    private val remoteDataSrc = RemoteDataSrcImplTest()
-    private val localDataSrc = LocalDataSrcImplTest()
+    private val remoteDataSrc = FakeRemoteDataSrcImpl()
+    private val localDataSrc = FakeLocalDataSrcImpl()
 
     override suspend fun getLeagueMatches(limit: Int?): Result<List<Fixture>> {
         return try {
