@@ -65,7 +65,7 @@ fun FixtureView(
                 .fillMaxWidth()
                 .clip(shape = RoundedCornerShape(spacing.spaceLarge))
                 .background(
-                    color = MaterialTheme.colors.primary.copy(.2f),
+                    color = MaterialTheme.colors.primary.copy(.25f),
                     shape = RoundedCornerShape(spacing.spaceLarge)
                 )
                 .padding(spacing.spaceMedium),
