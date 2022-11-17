@@ -68,6 +68,7 @@ dependencies {
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
+    implementation(AndroidX.splashScreen)
     implementation(AndroidX.viewModelKtx)
 
     implementation(Coil.coilCompose)
