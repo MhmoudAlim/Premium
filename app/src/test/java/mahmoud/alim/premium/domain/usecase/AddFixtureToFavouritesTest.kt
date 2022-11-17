@@ -76,6 +76,6 @@ class AddFixtureToFavouritesTest {
                 favRecords.addAll(entities)
             }.launchIn(this)
         }
-        assertThat(favRecords.size).isEqualTo(5)
+        assertThat(favRecords.size).isEqualTo(fixtures.size)
     }
 }
