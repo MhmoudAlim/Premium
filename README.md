@@ -133,7 +133,7 @@ Download App Apk : [Premium](https://github.com/MhmoudAlim/Premium/raw/master/ap
 <br/>
 <br/>
 
-### Why Clean Archetype ?
+### Why Clean Architecture ?
 
 - Clean, Testable, Maintainable and extendable Codebase
 - Apply high cohesion and low coupling
