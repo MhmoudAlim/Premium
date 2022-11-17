@@ -37,7 +37,7 @@ git clone git@github.com:MhmoudAlim/Premium.git
 
 ### `Demo`
 
-Download App Apk : [Premium](https://github.com/MhmoudAlim/Premium/raw/master/blob/app-release.apk)
+Download App Apk : [Premium](https://github.com/MhmoudAlim/Premium/raw/master/app/release/app-release.apk)
 
 ------
 
@@ -115,7 +115,7 @@ Download App Apk : [Premium](https://github.com/MhmoudAlim/Premium/raw/master/bl
 <br/>
 
 
-<img src="https://github.com/MhmoudAlim/Premium/blob/master/blob/app_arch.png?raw=true" alt="Unidirectional Data Flow" width="300"/>
+<img src="https://github.com/MhmoudAlim/Premium/blob/master/blob/app_arch.png?raw=true" alt="Unidirectional Data Flow" width="400"/>
 
 
 <br/>
@@ -126,7 +126,7 @@ Download App Apk : [Premium](https://github.com/MhmoudAlim/Premium/raw/master/bl
 ### Application data Flow
 <br/>
 
-<img src="https://github.com/MhmoudAlim/Premium/blob/master/blob/architecture.png?raw=true" alt="Data Flow" width="600"/>
+<img src="https://github.com/MhmoudAlim/Premium/blob/master/blob/architecture.png?raw=true" alt="Data Flow" height="300"/>
 
 
 <br/>
